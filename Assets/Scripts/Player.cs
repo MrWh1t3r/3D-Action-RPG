@@ -2,9 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
+    public int curHp;
+    public int maxHp;
+    
     public float moveSpeed;
     public Rigidbody rig;
     public float jumpForce;
@@ -48,5 +53,17 @@ public class Player : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void TakeDamage(int damageToTake)
+    {
+        curHp -= damageToTake;
+        
+        //update helth bar UI
+
+        if (curHp <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

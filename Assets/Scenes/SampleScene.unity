@@ -1277,6 +1277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2269680c93de3e46bf70ed2eba7debd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHp: 10
+  maxHp: 10
   moveSpeed: 7
   rig: {fileID: 1709215687}
   jumpForce: 6
