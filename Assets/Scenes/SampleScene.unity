@@ -576,6 +576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66049292a1b61e4c80b55d3084c8f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookSensitivity: 1
+  minXLook: -60
+  maxXLook: 60
+  camAnchor: {fileID: 77626131}
+  invertXRotation: 0
 --- !u!114 &1709215690
 MonoBehaviour:
   m_ObjectHideFlags: 0
