@@ -54,4 +54,16 @@ public class Enemy : MonoBehaviour
     {
         _isAttacking = false;
     }
+
+    public void TakeDamage(int damageToTake)
+    {
+        health -= damageToTake;
+
+        if (health <= 0)
+        {
+            _isDead = true;
+            agent.isStopped = true;
+            //disable animations
+        }
+    }
 }

@@ -1282,6 +1282,8 @@ MonoBehaviour:
   moveSpeed: 7
   rig: {fileID: 1709215687}
   jumpForce: 6
+  attackRange: 0.5
+  damage: 1
 --- !u!4 &1709215691
 Transform:
   m_ObjectHideFlags: 0

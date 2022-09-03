@@ -14,12 +14,19 @@ public class Player : MonoBehaviour
     public Rigidbody rig;
     public float jumpForce;
 
+    public float attackRange;
+    public int damage;
+    private bool _isAttacking;
+
     private void Update()
     {
         Move();
 
         if (Input.GetKeyDown(KeyCode.Space))
-            Jump();   
+            Jump();
+
+        if (Input.GetMouseButtonDown(0) &&!_isAttacking)
+            Attack();
     }
 
     void Move()
@@ -65,5 +72,30 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    void Attack()
+    {
+        _isAttacking = true;
+        
+        Invoke("TryDamage", 1.7f);
+        Invoke("DisableIsAttacking", 1.5f);
+    }
+
+    void TryDamage()
+    {
+        Ray ray = new Ray(transform.position + transform.forward, transform.forward);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, attackRange,0, 1<<6);
+
+        foreach (RaycastHit hit in hits)
+        {
+            hit.collider.GetComponent<Enemy>().TakeDamage(damage);
+        }
+       
+    }
+
+    void DisableIsAttacking()
+    {
+        _isAttacking = false;
     }
 }
