@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public int damage;
     private bool _isAttacking;
 
+    public Animator anim;
+
     private void Update()
     {
         Move();
@@ -27,6 +29,9 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) &&!_isAttacking)
             Attack();
+        
+        if(!_isAttacking)
+            UpdateAnimator();
     }
 
     void Move()
@@ -77,6 +82,7 @@ public class Player : MonoBehaviour
     void Attack()
     {
         _isAttacking = true;
+        anim.SetTrigger("Attack");
         
         Invoke("TryDamage", 1.7f);
         Invoke("DisableIsAttacking", 1.5f);
@@ -85,11 +91,11 @@ public class Player : MonoBehaviour
     void TryDamage()
     {
         Ray ray = new Ray(transform.position + transform.forward, transform.forward);
-        RaycastHit[] hits = Physics.SphereCastAll(ray, attackRange,0, 1<<6);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, attackRange,1, 1<<6);
 
         foreach (RaycastHit hit in hits)
         {
-            hit.collider.GetComponent<Enemy>().TakeDamage(damage);
+            hit.collider.GetComponent<Enemy>()?.TakeDamage(damage);
         }
        
     }
@@ -97,5 +103,26 @@ public class Player : MonoBehaviour
     void DisableIsAttacking()
     {
         _isAttacking = false;
+        anim.ResetTrigger("Attack");
+    }
+
+    void UpdateAnimator()
+    {
+        anim.SetBool("MovingForward", false);
+        anim.SetBool("MovingBackwards", false);
+        anim.SetBool("MovingLeft", false);
+        anim.SetBool("MovingRight", false);
+
+        Vector3 localVel = transform.InverseTransformDirection(rig.velocity);
+        
+        
+        if(localVel.z >0.1f)
+            anim.SetBool("MovingForward", true);
+        else if(localVel.z < -0.1f)
+            anim.SetBool("MovingBackwards", true);
+        else if(localVel.x >0.1f)
+            anim.SetBool("MovingRight", true);
+        else if(localVel.x<-0.1f)
+            anim.SetBool("MovingLeft", true);
     }
 }
