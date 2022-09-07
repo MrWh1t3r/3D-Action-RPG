@@ -84,14 +84,14 @@ public class Player : MonoBehaviour
         _isAttacking = true;
         anim.SetTrigger("Attack");
         
-        Invoke("TryDamage", 1.7f);
+        Invoke("TryDamage", 1.0f);
         Invoke("DisableIsAttacking", 1.5f);
     }
 
     void TryDamage()
     {
         Ray ray = new Ray(transform.position + transform.forward, transform.forward);
-        RaycastHit[] hits = Physics.SphereCastAll(ray, attackRange,1, 1<<6);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, attackRange,2, 1<<6);
 
         foreach (RaycastHit hit in hits)
         {
