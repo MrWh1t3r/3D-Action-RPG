@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class Player : MonoBehaviour
@@ -71,7 +72,7 @@ public class Player : MonoBehaviour
     {
         curHp -= damageToTake;
         
-        //update helth bar UI
+        HealthBarUI.Instance.UpdateFill(curHp,maxHp);
 
         if (curHp <= 0)
         {
