@@ -6463,6 +6463,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3208374403420055837, guid: 631f17b6651c4f0469514f4d8cf77f20, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7743766806684220517, guid: 631f17b6651c4f0469514f4d8cf77f20, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9890,13 +9894,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2453538242841758112, guid: fdc9cb7bcf9d6be43b3edc0dc6a576bd, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3262086265749055081, guid: fdc9cb7bcf9d6be43b3edc0dc6a576bd, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3262086265749055081, guid: fdc9cb7bcf9d6be43b3edc0dc6a576bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.606955
+      value: -25.55
       objectReference: {fileID: 0}
     - target: {fileID: 3262086265749055081, guid: fdc9cb7bcf9d6be43b3edc0dc6a576bd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9904,7 +9912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3262086265749055081, guid: fdc9cb7bcf9d6be43b3edc0dc6a576bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43.000282
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 3262086265749055081, guid: fdc9cb7bcf9d6be43b3edc0dc6a576bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9938,6 +9946,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2029760123}
+    - target: {fileID: 3999295417833498139, guid: fdc9cb7bcf9d6be43b3edc0dc6a576bd, type: 3}
+      propertyPath: attackDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4173942513238951376, guid: fdc9cb7bcf9d6be43b3edc0dc6a576bd, type: 3}
       propertyPath: m_Name
       value: Enemy
